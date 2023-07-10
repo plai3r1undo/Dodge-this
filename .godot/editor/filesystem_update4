@@ -1,1 +1,4 @@
+res://scenes/map_demo.tscn
+res://scenes/map_demo.gd
 res://scenes/player.tscn
+res://script/player.gd
