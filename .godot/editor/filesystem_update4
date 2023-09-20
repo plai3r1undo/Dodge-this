@@ -1,4 +1,12 @@
-res://scenes/map_demo.tscn
-res://scenes/map_demo.gd
 res://scenes/player.tscn
 res://script/player.gd
+res://shaders/playerPixelatePlane.gdshader
+res://scenes/camerashader.gdshader
+res://scenes/pixelated.tres
+res://test-meshes/prova.gdshader
+res://scenes/map_demo.tscn
+res://scenes/ball.tscn
+res://scenes/map.tscn
+res://scenes/scooterglb.tscn
+res://scenes/map_demo.gd
+res://script/Ball.gd

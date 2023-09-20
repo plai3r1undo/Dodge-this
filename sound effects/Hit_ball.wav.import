@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1k2756aph0vi"
+path="res://.godot/imported/Hit_ball.wav-c7d76b3aa4d995b2489d1346a8fde4ae.sample"
+
+[deps]
+
+source_file="res://sound effects/Hit_ball.wav"
+dest_files=["res://.godot/imported/Hit_ball.wav-c7d76b3aa4d995b2489d1346a8fde4ae.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

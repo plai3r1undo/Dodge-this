@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b4a2rpmmlsx1d"]
+
+[ext_resource type="Shader" path="res://scenes/camerashader.gdshader" id="1_23xv0"]
+
+[resource]
+shader = ExtResource("1_23xv0")
+shader_parameter/pixelate = 230.0

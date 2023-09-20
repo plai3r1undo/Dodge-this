@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dthqefa4o571d"]
+[gd_scene load_steps=12 format=3 uid="uid://dthqefa4o571d"]
 
 [ext_resource type="Script" path="res://scenes/map_demo.gd" id="1_3164v"]
 [ext_resource type="Texture2D" uid="uid://bgrqo10j554kt" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_lp01w"]
 [ext_resource type="Texture2D" uid="uid://dwn2mxr7iljop" path="res://addons/kenney_prototype_textures/orange/texture_04.png" id="2_lqww4"]
+[ext_resource type="Texture2D" uid="uid://b4aus3swry3my" path="res://pixelbg.png" id="4_frh6n"]
+[ext_resource type="PackedScene" uid="uid://4xrog8wteqss" path="res://scenes/scooterglb.tscn" id="4_p7k4m"]
+[ext_resource type="Texture2D" uid="uid://s0oxw8hbp34y" path="res://pixelfg.png" id="5_bgqg5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1xaj"]
 albedo_texture = ExtResource("1_lp01w")
@@ -10,14 +13,24 @@ albedo_texture = ExtResource("1_lp01w")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xngr"]
 albedo_texture = ExtResource("2_lqww4")
 
-[sub_resource type="Environment" id="Environment_pj5km"]
-background_mode = 1
-background_color = Color(0.498039, 0.788235, 0.941176, 1)
-background_energy_multiplier = 1.05
-ambient_light_color = Color(0.921569, 0.988235, 0.713726, 1)
-reflected_light_source = 2
-glow_enabled = true
-glow_normalized = true
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5vul"]
+sky_top_color = Color(0.0901961, 0.670588, 0.976471, 1)
+sky_horizon_color = Color(0.105882, 0.407843, 0.913725, 1)
+ground_bottom_color = Color(0.27451, 0.396078, 0.921569, 1)
+ground_horizon_color = Color(0.105882, 0.407843, 0.913725, 1)
+
+[sub_resource type="Sky" id="Sky_vvq7b"]
+sky_material = SubResource("ProceduralSkyMaterial_o5vul")
+
+[sub_resource type="Environment" id="Environment_ehr4g"]
+background_mode = 2
+sky = SubResource("Sky_vvq7b")
+ambient_light_color = Color(0.568627, 0.568627, 0.568627, 1)
+ambient_light_sky_contribution = 0.12
+tonemap_mode = 2
+tonemap_white = 0.65
+ssao_enabled = true
+adjustment_brightness = 0.93
 
 [node name="mapDemo" type="Node3D"]
 script = ExtResource("1_3164v")
@@ -28,40 +41,40 @@ script = ExtResource("1_3164v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
 material_override = SubResource("StandardMaterial3D_b1xaj")
 use_collision = true
-size = Vector3(20, 1, 20)
+size = Vector3(36, 1, 35)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -1, 0)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_7xngr")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1, 0)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_7xngr")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 7, -2.5, -2.5)
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 7, -1.5, -2.5)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_7xngr")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 7, -2.5, -5.5)
+transform = Transform3D(1, 0, 0, 0, 4.47035e-08, 1, 0, -1, 4.47035e-08, 7, 0.395916, -7.5499)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_7xngr")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -2.5, 2.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1, 3.5)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_7xngr")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.5, 0, 1.5)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.5, 1.5, 1.5)
 use_collision = true
 size = Vector3(1, 4, 1)
 material = SubResource("StandardMaterial3D_7xngr")
@@ -98,13 +111,75 @@ layout_mode = 2
 placeholder_text = "enter ip"
 alignment = 1
 
+[node name="name" type="LineEdit" parent="CanvasLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "player name"
+alignment = 1
+max_length = 14
+
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "ip: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="death" type="Label" parent="CanvasLayer/HUD"]
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 50.0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 34
+text = "Deaths: 0"
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
+layout_mode = 0
+offset_left = 1656.0
+offset_top = 60.0
+offset_right = 3656.0
+offset_bottom = 2060.0
+scale = Vector2(0.0921433, 0.0916148)
+max_value = 10.0
+value = 10.0
+fill_mode = 4
+texture_under = ExtResource("4_frh6n")
+texture_progress = ExtResource("5_bgqg5")
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://scenes/player.tscn")
 spawn_path = NodePath("..")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_pj5km")
+environment = SubResource("Environment_ehr4g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.551471, 0.834194, 0, -0.834194, 0.551471, 0, 37.3858, 47)
+shadow_enabled = true
+
+[node name="Scooterglb" parent="." instance=ExtResource("4_p7k4m")]
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 15.7921, -2.81463, 14.8324)
+
+[node name="Scooterglb2" parent="." instance=ExtResource("4_p7k4m")]
+transform = Transform3D(0.133826, 0, 0.0177635, 0, 0.135, 0, -0.0177635, 0, 0.133826, 15.7921, -2.81463, 7.42264)
+
+[node name="Scooterglb4" parent="." instance=ExtResource("4_p7k4m")]
+transform = Transform3D(-0.131516, 0, 0.030474, 0, 0.135, 0, -0.030474, 0, -0.131516, 15.7921, -2.81463, 4.35899)
+
+[node name="Scooterglb3" parent="." instance=ExtResource("4_p7k4m")]
+transform = Transform3D(-0.128937, 0, -0.0400038, 0, 0.135, 0, 0.0400038, 0, -0.128937, 8.53882, -2.81463, 7.42264)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/join" to="." method="_on_join_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MainMenu/VBoxContainer/address" to="." method="_on_address_text_submitted"]
+[connection signal="text_submitted" from="CanvasLayer/MainMenu/VBoxContainer/name" to="." method="_on_name_text_submitted"]
+[connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
