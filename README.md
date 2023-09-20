@@ -7,4 +7,4 @@
 ## Goals
 
 - fun and goofy gameplay
-- muliplayer
+- multiplayer
