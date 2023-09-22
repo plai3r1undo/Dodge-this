@@ -3,9 +3,6 @@ extends CharacterBody3D
 signal health_changed(health_value)
 signal death_counter(deaths)
 
-const SPEED = 8
-const JUMP_VELOCITY = 9.0
-
 @onready var camera = $Camera3D
 @onready var view_camera = $Camera3D/Camera3D
 @export var seny := 0.005
@@ -26,16 +23,21 @@ var is_super_charged: bool = true
 var player_name := "name";
 
 
+
+#these are the one for quake movement
+
+
 var friction: float = 4
-var accel: float = 12
+var accel: float = 6
+
 # 4 for quake 2/3 40 for quake 1/source
-var accel_air: float = 4
-var top_speed_ground: float = 15
+var accel_air: float = 3
+var top_speed_ground: float = 7
 # 15 for quake 2/3, 2.5 for quake 1/source
-var top_speed_air: float = 15
+var top_speed_air: float = 7
 # linearize friction below this speed value
 var lin_friction_speed: float = 10
-var jump_force: float = 14
+var jump_force: float = 9
 var projected_speed: float = 0
 var grounded_prev: bool = true
 var grounded: bool = true
@@ -113,7 +115,7 @@ func clip_velocity(normal: Vector3, overbounce: float, delta) -> void:
 	velocity -= correction_dir
 	# this is only here cause I have the gravity too high by default
 	# with a gravity so high, I use this to account for it and allow surfing
-	#velocity.y -= correction_dir.y * (gravity/20)
+	velocity.y -= correction_dir.y * (gravity/20)
 
 func apply_friction(delta):
 	var speed_scalar: float = 0

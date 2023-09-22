@@ -905,25 +905,6 @@ shape = SubResource("CapsuleShape3D_qksu5")
 wait_time = 30.0
 one_shot = true
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 509.0
-offset_top = 411.0
-offset_right = 647.0
-offset_bottom = 518.0
-theme_override_font_sizes/font_size = 20
-text = "speed"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="animation_finished" from="prova_personaggio/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="AudioTimer" to="." method="_on_audio_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

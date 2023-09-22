@@ -197,7 +197,7 @@ transform = Transform3D(-0.131516, 0, 0.030474, 0, 0.135, 0, -0.030474, 0, -0.13
 transform = Transform3D(-0.128937, 0, -0.0400038, 0, 0.135, 0, 0.0400038, 0, -0.128937, -2.21777, -5.93035, -2.8594)
 
 [node name="mappa-peter" parent="." instance=ExtResource("7_pvthh")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -7.96145, -18.0243)
+transform = Transform3D(3.6, 0, 0, 0, 3.6, 0, 0, 0, 3.6, 0, -7.96145, -18.0243)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/join" to="." method="_on_join_pressed"]
