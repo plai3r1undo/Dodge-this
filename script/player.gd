@@ -3,9 +3,6 @@ extends CharacterBody3D
 signal health_changed(health_value)
 signal death_counter(deaths)
 
-const SPEED = 8
-const JUMP_VELOCITY = 9.0
-
 @onready var camera = $Camera3D
 @onready var view_camera = $Camera3D/Camera3D
 @export var seny := 0.005
@@ -22,7 +19,27 @@ const JUMP_VELOCITY = 9.0
 var death: int = 0;
 var is_super_charged: bool = true
 @onready var super_timer: Timer = $superTimer
+@onready var label_speed = $Control/Label
 var player_name := "name";
+
+
+
+var friction: float = 4
+var accel: float = 10
+
+# 4 for quake 2/3 40 for quake 1/source
+var accel_air: float = 4
+var top_speed_ground: float = 10
+# 15 for quake 2/3, 2.5 for quake 1/source
+var top_speed_air: float = 7
+# linearize friction below this speed value
+var lin_friction_speed: float = 5
+var jump_force: float = 9
+var projected_speed: float = 0
+var grounded_prev: bool = true
+var grounded: bool = true
+var wish_dir: Vector3 = Vector3.ZERO
+
 
 
 @export var health: int = 10
@@ -82,42 +99,111 @@ func _process(_delta):
 		
 	if Input.is_action_pressed("super"):
 		superThrow();
+
+func clip_velocity(normal: Vector3, overbounce: float, delta) -> void:
+	var correction_amount: float = 0
+	var correction_dir: Vector3 = Vector3.ZERO
+	var move_vector: Vector3 = get_velocity().normalized()
 	
+	correction_amount = move_vector.dot(normal) * overbounce
+	
+	correction_dir = normal * correction_amount
+	velocity -= correction_dir
+	# this is only here cause I have the gravity too high by default
+	# with a gravity so high, I use this to account for it and allow surfing
+	velocity.y -= correction_dir.y * (gravity/20)
+
+func apply_friction(delta):
+	var speed_scalar: float = 0
+	var friction_curve: float = 0
+	var speed_loss: float = 0
+	var current_speed: float = 0
+	
+	# using projected velocity will lead to no friction being applied in certain scenarios
+	# like if wish_dir is perpendicular
+	# if wish_dir is obtuse from movement it would create negative friction and fling players
+	current_speed = velocity.length()
+	
+	if(current_speed < 0.1):
+		velocity.x = 0
+		velocity.y = 0
+		return
+	
+	friction_curve = clampf(current_speed, lin_friction_speed, INF)
+	speed_loss = friction_curve * friction * delta
+	speed_scalar = clampf(current_speed - speed_loss, 0, INF)
+	speed_scalar /= clampf(current_speed, 1, INF)
+	
+	velocity *= speed_scalar
+
+func apply_acceleration(acceleration: float, top_speed: float, delta):
+	var speed_remaining: float = 0
+	var accel_final: float = 0
+	
+	speed_remaining = (top_speed * wish_dir.length()) - projected_speed
+	
+	if speed_remaining <= 0:
+		return
+	
+	accel_final = acceleration * delta * top_speed
+	
+	clampf(accel_final, 0, speed_remaining)
+	
+	velocity.x += accel_final * wish_dir.x
+	velocity.z += accel_final * wish_dir.z
+
+func air_move(delta):
+	apply_acceleration(accel_air, top_speed_air, delta)
+	
+	clip_velocity(get_wall_normal(), 14, delta)
+	clip_velocity(get_floor_normal(), 14, delta)
+	
+	velocity.y -= gravity * delta
+
+func ground_move(delta):
+	floor_snap_length = 0.4
+	apply_acceleration(accel, top_speed_ground, delta)
+	
+	if Input.is_action_pressed("jump"):
+		velocity.y = jump_force
+		play_effect(jump_effect)
+	
+	if grounded == grounded_prev:
+		apply_friction(delta)
+	
+	if is_on_wall:
+		clip_velocity(get_wall_normal(), 1, delta)
+
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_multiplayer_authority(): return
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		play_effect(jump_effect)
-		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("throw") and is_on_floor() \
 		and animation_player.current_animation != "Lancio":
 			throw_ball.rpc()
 
-
-
+	grounded_prev = grounded
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+	var input_dir: Vector2 = Input.get_vector("left", "right", "forward", "backward")
+	wish_dir = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	projected_speed = (velocity * Vector3(1, 0, 1)).dot(wish_dir)
 	
-	if animation_player.current_animation == "Lancio":
-		pass
-	elif input_dir != Vector2.ZERO and is_on_floor():
-		animation_player.play("idle",-1,2)
-	else:
-		animation_player.play("idle")
+	
+	
+	
+	# Add the gravity.
+	if not is_on_floor():
+		grounded = false
+		air_move(delta)
+	if is_on_floor():
+		if velocity.y > 10:
+			grounded = false
+			air_move(delta)
+		else:
+			grounded = true
+			ground_move(delta)
+	
 	move_and_slide()
 
 

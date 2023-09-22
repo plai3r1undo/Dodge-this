@@ -14,3 +14,5 @@ data_*/
 #anddons relative to the editor
 
 addons/godot-vim
+.godot/editor/script_editor_cache.cfg
+.godot/editor/editor_layout.cfg
