@@ -24,25 +24,21 @@ var player_name := "name";
 
 
 
-#these are the one for quake movement
-
-
 var friction: float = 4
-var accel: float = 6
+var accel: float = 10
 
 # 4 for quake 2/3 40 for quake 1/source
-var accel_air: float = 3
-var top_speed_ground: float = 7
+var accel_air: float = 4
+var top_speed_ground: float = 10
 # 15 for quake 2/3, 2.5 for quake 1/source
 var top_speed_air: float = 7
 # linearize friction below this speed value
-var lin_friction_speed: float = 10
+var lin_friction_speed: float = 5
 var jump_force: float = 9
 var projected_speed: float = 0
 var grounded_prev: bool = true
 var grounded: bool = true
 var wish_dir: Vector3 = Vector3.ZERO
-# Get the gravity from the project settings
 
 
 
