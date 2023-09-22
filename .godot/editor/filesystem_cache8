@@ -1,18 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1695222263
-back.png::CompressedTexture2D::135556591238861878::1695070433::1695070434::1::::<><>::
-export_presets.cfg::TextFile::-1::1695151723::0::1::::<><>::
-front.png::CompressedTexture2D::7226860922189336862::1695070426::1695070434::1::::<><>::
+::res://::1695410068
+export_presets.cfg::TextFile::-1::1695240045::0::1::::<><>::
 icon.svg::CompressedTexture2D::1947474584329486926::1689017298::1689017307::1::::<><>::
-jakub-wulkowicz-health-bar.jpg::CompressedTexture2D::2935350388394077849::1695142587::1695142848::1::::<><>::
-map.glb::PackedScene::3205675448825712799::1689185489::1689185496::1::::<><>::
-moon-tribe-loading-bars-screenshots-0006-screenshots-1.jpg::CompressedTexture2D::6892126221304172025::1695142670::1695142848::1::::<><>::
-pixelbg.png::CompressedTexture2D::4423145132825214256::1695143527::1695143579::1::::<><>::
-pixelfg.png::CompressedTexture2D::1315900947306876554::1695143562::1695143579::1::::<><>::
-prova_personaggio.glb::PackedScene::6276997509875584622::1689107648::1689107677::1::::<><>::
-README.md::TextFile::-1::1689017253::0::1::::<><>::
-victoria-rafaelian-screenshot-2023-05-13-164246.jpg::CompressedTexture2D::1869161532294720627::1695142613::1695142848::1::::<><>::
-::res://addons/::1689018549
+README.md::TextFile::-1::1695237050::0::1::::<><>::
+::res://2D assets/::1695410068
+pixelbg.png::CompressedTexture2D::4423145132825214256::1695143527::1695410068::1::::<><>::
+pixelfg.png::CompressedTexture2D::1315900947306876554::1695143562::1695410069::1::::<><>::
+::res://addons/::1695323286
+::res://addons/godot-vim/::1695323288
+godot-vim.gd::GDScript::-1::1683060750::0::1::::<>EditorPlugin<>::
+godot_bindings.gd::GDScript::-1::1683060750::0::1::::<>Node<>::
+icon.svg::CompressedTexture2D::4150875374295335597::1683060750::1695323288::1::::<><>::
+plugin.cfg::TextFile::-1::1683060750::0::1::::<><>::
 ::res://addons/kenney_prototype_textures/::1689018550
 LICENSE.txt::TextFile::-1::1689018549::0::1::::<><>::
 ::res://addons/kenney_prototype_textures/dark/::1689018551
@@ -99,21 +98,31 @@ texture_10.png::CompressedTexture2D::6556401047411444732::1689018550::1689018551
 texture_11.png::CompressedTexture2D::629511444013187059::1689018550::1689018551::1::::<><>::
 texture_12.png::CompressedTexture2D::7768693343131068988::1689018550::1689018551::1::::<><>::
 texture_13.png::CompressedTexture2D::2740958709898488054::1689018550::1689018551::1::::<><>::
-::res://scenes/::1695222250
-ball.tscn::PackedScene::1691972260056475937::1695156946::0::1::::<><>::res://script/Ball.gd<>uid://d1k2756aph0vi
-camerashader.gdshader::Shader::-1::1695222250::0::1::::<><>::
-map.tscn::PackedScene::1345751691235876201::1695156946::0::1::::<><>::uid://blw4ahjdxy67t
-map_demo.gd::GDScript::-1::1695155567::0::1::::<>Node3D<>::
-map_demo.tscn::PackedScene::8508279603494523623::1695156946::0::1::::<><>::res://scenes/map_demo.gd<>uid://bgrqo10j554kt
-personaggioDemo.tscn::PackedScene::6151989593290076059::1689107863::0::1::::<><>::uid://cvovh5c4pqsl7
-pixelated.tres::ShaderMaterial::4423567673445682835::1695221540::0::1::::<><>::res://scenes/camerashader.gdshader
-player.tscn::PackedScene::7468533853454436070::1695222217::0::1::::<><>::res://script/player.gd<>res://shaders/playerPixelatePlane.gdshader<>uid://deqwdl2pqefex::::res://sound effects/main song.wav
-scooterglb.tscn::PackedScene::2084014710981805062::1695156946::0::1::::<><>::uid://qah48euuvey
-::res://script/::1695221540
-Ball.gd::GDScript::-1::1694981989::0::1::::<>Node3D<>::
-player.gd::GDScript::-1::1695221540::0::1::::<>CharacterBody3D<>::
-::res://shaders/::1695222250
-playerPixelatePlane.gdshader::Shader::-1::1695222250::0::1::::<><>::
+::res://Fonts/::1695409156
+::res://Fonts/Germanica/::1695409173
+Embossed Germanica.ttf::FontFile::6800532185046970932::1177062034::1695409173::1::::<><>::
+Fluted Germanica.ttf::FontFile::3647501056341278545::1177062028::1695409173::1::::<><>::
+Plain Germanica.ttf::FontFile::1631510382910515718::1177062022::1695409173::1::::<><>::
+Shadowed Germanica.ttf::FontFile::8122073378990656722::1177062042::1695409173::1::::<><>::
+::res://meshes/::1695409912
+mappa-peter.glb::PackedScene::4185679303803503752::1695239312::1695409759::1::::<><>::
+mappa_peter.tscn::PackedScene::4518599572332447678::1695409912::0::1::::<><>::uid://b0vtr50ogq4um::::res://meshes/mappa-peter.glb
+prova_personaggio.glb::PackedScene::6276997509875584622::1689107648::1695409759::1::::<><>::
+::res://scenes/::1695410068
+ball.tscn::PackedScene::1691972260056475937::1695409912::0::1::::<><>::res://script/Ball.gd<>uid://d1k2756aph0vi::::res://sound effects/Hit_ball.wav
+camerashader.gdshader::Shader::-1::1695410068::0::1::::<><>::
+map.tscn::PackedScene::1345751691235876201::1695234553::0::1::::<><>::uid://blw4ahjdxy67t
+map_demo.gd::GDScript::-1::1695409910::0::1::::<>Node3D<>::
+map_demo.tscn::PackedScene::8508279603494523623::1695410068::0::1::::<><>::res://scenes/map_demo.gd<>uid://xik0cygy8plm::::res://Fonts/Germanica/Plain Germanica.ttf<>uid://b4aus3swry3my::::res://2D assets/pixelbg.png<>uid://4xrog8wteqss::::res://scenes/scooterglb.tscn<>uid://s0oxw8hbp34y::::res://2D assets/pixelfg.png<>uid://b5m3w7btxg5w1::::res://meshes/mappa_peter.tscn
+personaggioDemo.tscn::PackedScene::6151989593290076059::1695409758::0::1::::<><>::uid://cvovh5c4pqsl7
+pixelated.tres::ShaderMaterial::4423567673445682835::1695236354::0::1::::<><>::res://scenes/camerashader.gdshader
+player.tscn::PackedScene::7468533853454436070::1695409911::0::1::::<><>::res://script/player.gd<>res://shaders/playerPixelatePlane.gdshader<>uid://deqwdl2pqefex::::res://sound effects/main song.wav
+scooterglb.tscn::PackedScene::2084014710981805062::1695409912::0::1::::<><>::uid://qah48euuvey::::res://test-meshes/Scooterglb.glb
+::res://script/::1695409713
+Ball.gd::GDScript::-1::1695240045::0::1::::<>Node3D<>::
+player.gd::GDScript::-1::1695409713::0::1::::<>CharacterBody3D<>::
+::res://shaders/::1695410068
+playerPixelatePlane.gdshader::Shader::-1::1695410068::0::1::::<><>::
 ::res://sound effects/::1695065102
 Ball_throw_sound.wav::AudioStreamWAV::4685559980548832975::1694964417::1694964417::1::::<><>::
 hit.wav::AudioStreamWAV::1981231569108125824::1694965233::1694967794::1::::<><>::
@@ -121,11 +130,8 @@ Hit_ball.wav::AudioStreamWAV::9006513891028185118::1694965233::1694965233::1::::
 Jump.wav::AudioStreamWAV::6246675137766794594::1694965233::1694965233::1::::<><>::
 main song.wav::AudioStreamWAV::7474389221088612723::1695065076::1695065102::1::::<><>::
 Victory.wav::AudioStreamWAV::6307321310351002159::1694965233::1694965233::1::::<><>::
-::res://spada/::1694963798
-::res://test-meshes/::1695222250
-earth defaults custom prp.glb::PackedScene::7270650645263113235::1694529231::1694529232::1::::<><>::
+::res://test-meshes/::1695236609
 new_shader_material.tres::ShaderMaterial::585272869386719518::1694620641::0::1::::<><>::res://test-meshes/prova.gdshader
-prova.gdshader::Shader::-1::1695222250::0::1::::<><>::
 Scooterglb.glb::PackedScene::33044118987269524::1694532443::1694532479::1::::<><>::
 Scooterglb_Material_albedo.png::CompressedTexture2D::7317946962631893131::1694532463::1694532480::1::::<><>::
 Scooterglb_Material_emissive.png::CompressedTexture2D::4801994868201016340::1694532443::1694532480::1::::<><>::

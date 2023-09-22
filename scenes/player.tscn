@@ -720,8 +720,8 @@ senx = 0.009
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform3D(-2, 0, 1.74846e-07, 0, 2, 0, -1.74846e-07, 0, -2, 0, 2.14943, 0)
 billboard = 1
-fixed_size = true
 text = "name"
+font_size = 64
 uppercase = true
 
 [node name="prova_personaggio" type="Node3D" parent="."]
@@ -902,7 +902,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334603, 0)
 shape = SubResource("CapsuleShape3D_qksu5")
 
 [node name="superTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 30.0
 one_shot = true
 
 [connection signal="animation_finished" from="prova_personaggio/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,27 +1,30 @@
 extends Node3D
 
+
+
+
 signal name_changed(name)
+signal high_pixel_resolution(high_pixel_resolution)
 
 @onready var main_menu = $CanvasLayer/MainMenu
 
 
 var ip_address := "localhost"
 const PLAYER = preload("res://scenes/player.tscn")
-const PORT = 9999
+var PORT: int = 9999
 var enet_peer = ENetMultiplayerPeer.new( )
 @onready var hud = $CanvasLayer/HUD 
 @onready var health_bar = $CanvasLayer/HUD/TextureProgressBar
 @onready var death_counter: Label = $CanvasLayer/HUD/death
+@onready var back_ground: ColorRect = $CanvasLayer/ColorRect
+@onready var title: VBoxContainer = $CanvasLayer/Title
+var high_pixel_form = false;
 
 
 
 
 func _ready():
 	hud.hide()
-	var upnp = UPNP.new()
-	var external_ip = upnp.query_external_address()
-	$CanvasLayer/MainMenu/Label.text = external_ip;
-
 
 
 
@@ -42,19 +45,6 @@ func _on_address_text_submitted(new_text):
 
 func _on_host_pressed():
 	main_menu.hide()
-	var upnp = UPNP.new()
-	var discor_result = upnp.discover()
-
-
-	if discor_result == UPNP.UPNP_RESULT_SUCCESS:
-		if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
-			var map_result_udp = upnp.add_port_mapping(9999,9999,"dodge_this_udp", "UDP",0)
-			var map_result_tcp = upnp.add_port_mapping(9999,9999,"dodge_this_tcp", "TCP",0)
-			
-			if not map_result_udp == UPNP.UPNP_RESULT_SUCCESS:
-				upnp.add_port_mapping(9999,9999,"","UDP");
-			if not map_result_tcp == UPNP.UPNP_RESULT_SUCCESS:
-				upnp.add_port_mapping(9999,9999,"","TCP")
 
 	enet_peer.create_server(PORT)
 	multiplayer.multiplayer_peer = enet_peer
@@ -62,15 +52,16 @@ func _on_host_pressed():
 	multiplayer.peer_disconnected.connect(remove_player)
 	add_player(multiplayer.get_unique_id())
 	hud.show()
-	
-
+	back_ground.hide()
+	title.hide()
 
 func _on_join_pressed():
 	main_menu.hide()
 	enet_peer.create_client(ip_address, PORT)
 	multiplayer.multiplayer_peer = enet_peer
 	hud.show()
-	
+	back_ground.hide()
+	title.hide()
 
 func remove_player(peer_id):
 	var player = get_node_or_null(str(peer_id))
@@ -84,8 +75,8 @@ func add_player(peer_id):
 	var PLAYER = PLAYER.instantiate()
 	PLAYER.name = str(peer_id)
 	add_child(PLAYER)
+	PLAYER.health_changed.connect(update_health_bar)
 	if PLAYER.is_multiplayer_authority():
-		PLAYER.health_changed.connect(update_health_bar)
 		PLAYER.death_counter.connect(update_death_counter)
 
 func update_health_bar(health_value):
@@ -100,7 +91,7 @@ func _on_multiplayer_spawner_spawned(node): #must check if it is player if we ad
 	if node.is_multiplayer_authority():
 		node.health_changed.connect(update_health_bar)
 		node.death_counter.connect(update_death_counter)
-
+		high_pixel_resolution.emit(high_pixel_form)
 
 
 func _on_name_text_submitted(new_text):
@@ -114,9 +105,29 @@ func _on_name_text_submitted(new_text):
 	name_changed.emit(player_name)
 			
 	
-	
-	
-	
-	
-	
-	
+
+func _on_check_button_2_toggled(button_pressed):
+	high_pixel_form = button_pressed
+
+
+func _on_upnp_pressed():
+	var upnp = UPNP.new()
+	var discor_result = upnp.discover()
+
+
+	if discor_result == UPNP.UPNP_RESULT_SUCCESS:
+		if upnp.get_gateway() and upnp.get_gateway().is_valid_gateway():
+			var map_result_udp = upnp.add_port_mapping(PORT,PORT,"dodge_this_udp", "UDP",0)
+			var map_result_tcp = upnp.add_port_mapping(PORT,PORT,"dodge_this_tcp", "TCP",0)
+			
+			if not map_result_udp == UPNP.UPNP_RESULT_SUCCESS:
+				upnp.add_port_mapping(9999,9999,"","UDP");  #some routes don't accept names and some do
+			if not map_result_tcp == UPNP.UPNP_RESULT_SUCCESS:
+				upnp.add_port_mapping(9999,9999,"","TCP")
+	var external_ip = upnp.query_external_address()
+	$CanvasLayer/MainMenu/Label.text = external_ip;
+
+
+func _on_spin_box_value_changed(value):
+	PORT = value;
+	print("port: " + str(value))

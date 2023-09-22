@@ -9,7 +9,7 @@ const JUMP_VELOCITY = 9.0
 @onready var camera = $Camera3D
 @onready var view_camera = $Camera3D/Camera3D
 @export var seny := 0.005
-@export var senx := 0.005 
+@export var senx := 0.005
 @export var super_wait_time: float = 0.5 #this is the time between each ball in the super, to change the timer beteen each super change
 										#in the timer node
 @onready var animation_player =  $prova_personaggio/AnimationPlayer
@@ -48,10 +48,19 @@ func _ready():
 	main_scene.name_changed.connect(update_player_name)
 	label_name.text = player_name;
 	label_name.show()
+	main_scene.high_pixel_resolution.connect(change_pixel_resolution)
 	"""
 	In the future needs to be calle when a match starts
 	"""
-
+ 
+func change_pixel_resolution(high_res):
+	var shader_mesh = $Camera3D/Camera3D/Node3D/MeshInstance3D
+	if high_res:
+		shader_mesh.set_instance_shader_parameter("pixel_size",2)
+		print("high res has been set!")
+	else:
+		shader_mesh.set_instance_shader_parameter("pixel_size",6)
+		print("low res has been set!!!!!")
 
 func update_player_name(name_player):
 	label_name = name_player
@@ -65,7 +74,7 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * seny * .2)
 		camera.rotation.x = clamp(camera.rotation.x, -PI/2, PI/2)
  
-func _process(delta):
+func _process(_delta):
 	handle_volume()
 	
 	if  Input.is_action_just_pressed("respawn"):
@@ -87,8 +96,8 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_pressed("throw") and is_on_floor() \
-			and animation_player.current_animation != "Lancio":
-				throw_ball.rpc() 
+		and animation_player.current_animation != "Lancio":
+			throw_ball.rpc()
 
 
 
@@ -179,7 +188,6 @@ func superThrow():
 		throw_ball.rpc()
 		await get_tree().create_timer(0.5).timeout
 		throw_ball.rpc()
-		
 
 
 

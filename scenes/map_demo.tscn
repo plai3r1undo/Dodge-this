@@ -1,17 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dthqefa4o571d"]
+[gd_scene load_steps=10 format=3 uid="uid://dthqefa4o571d"]
 
 [ext_resource type="Script" path="res://scenes/map_demo.gd" id="1_3164v"]
-[ext_resource type="Texture2D" uid="uid://bgrqo10j554kt" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_lp01w"]
-[ext_resource type="Texture2D" uid="uid://dwn2mxr7iljop" path="res://addons/kenney_prototype_textures/orange/texture_04.png" id="2_lqww4"]
-[ext_resource type="Texture2D" uid="uid://b4aus3swry3my" path="res://pixelbg.png" id="4_frh6n"]
+[ext_resource type="Theme" uid="uid://0frcqcc7hun2" path="res://2D assets/ImponentTheme.tres" id="2_oefn4"]
+[ext_resource type="Texture2D" uid="uid://b4aus3swry3my" path="res://2D assets/pixelbg.png" id="3_ety6k"]
 [ext_resource type="PackedScene" uid="uid://4xrog8wteqss" path="res://scenes/scooterglb.tscn" id="4_p7k4m"]
-[ext_resource type="Texture2D" uid="uid://s0oxw8hbp34y" path="res://pixelfg.png" id="5_bgqg5"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1xaj"]
-albedo_texture = ExtResource("1_lp01w")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xngr"]
-albedo_texture = ExtResource("2_lqww4")
+[ext_resource type="Texture2D" uid="uid://s0oxw8hbp34y" path="res://2D assets/pixelfg.png" id="4_uggv1"]
+[ext_resource type="PackedScene" uid="uid://b5m3w7btxg5w1" path="res://meshes/mappa_peter.tscn" id="7_pvthh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5vul"]
 sky_top_color = Color(0.0901961, 0.670588, 0.976471, 1)
@@ -35,68 +29,53 @@ adjustment_brightness = 0.93
 [node name="mapDemo" type="Node3D"]
 script = ExtResource("1_3164v")
 
-[node name="maps" type="Node3D" parent="."]
-
-[node name="CSGBox3D" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
-material_override = SubResource("StandardMaterial3D_b1xaj")
-use_collision = true
-size = Vector3(36, 1, 35)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, -1, 0)
-use_collision = true
-size = Vector3(1, 4, 1)
-material = SubResource("StandardMaterial3D_7xngr")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1, 0)
-use_collision = true
-size = Vector3(1, 4, 1)
-material = SubResource("StandardMaterial3D_7xngr")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 7, -1.5, -2.5)
-use_collision = true
-size = Vector3(1, 4, 1)
-material = SubResource("StandardMaterial3D_7xngr")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 4.47035e-08, 1, 0, -1, 4.47035e-08, 7, 0.395916, -7.5499)
-use_collision = true
-size = Vector3(1, 4, 1)
-material = SubResource("StandardMaterial3D_7xngr")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -1, 3.5)
-use_collision = true
-size = Vector3(1, 4, 1)
-material = SubResource("StandardMaterial3D_7xngr")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="maps"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.5, 1.5, 1.5)
-use_collision = true
-size = Vector3(1, 4, 1)
-material = SubResource("StandardMaterial3D_7xngr")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -4358.0
+offset_top = -3804.0
+offset_right = 5800.0
+offset_bottom = 4546.0
+color = Color(0.188235, 0.298039, 0.415686, 1)
+
+[node name="Title" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 44.0
+offset_bottom = 217.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Title"]
+layout_mode = 2
+theme = ExtResource("2_oefn4")
+theme_override_font_sizes/font_size = 70
+text = "Dodge This"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MainMenu" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 239.0
+offset_top = 214.0
+offset_right = -239.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MainMenu"]
+[node name="Label" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
-color = Color(0.188235, 0.298039, 0.415686, 1)
+theme_override_font_sizes/font_size = 23
+text = "ip: To view ip start UPnP servie"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="host" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
@@ -112,19 +91,55 @@ placeholder_text = "enter ip"
 alignment = 1
 
 [node name="name" type="LineEdit" parent="CanvasLayer/MainMenu/VBoxContainer"]
+visible = false
 layout_mode = 2
 placeholder_text = "player name"
 alignment = 1
 max_length = 14
 
-[node name="Label" type="Label" parent="CanvasLayer/MainMenu"]
+[node name="Upnp" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 23
-text = "ip: "
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "start UPnP service"
+
+[node name="SpinBox" type="SpinBox" parent="CanvasLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+min_value = 9999.0
+max_value = 60000.0
+value = 9999.0
+custom_arrow_step = 1.0
+
+[node name="Settings" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1562.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Settings"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -447.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Settings/VBoxContainer2"]
+layout_mode = 2
+text = "Useless Stupid Setting"
+
+[node name="CheckButton2" type="CheckButton" parent="CanvasLayer/Settings/VBoxContainer2"]
+layout_mode = 2
+text = "High pixel form"
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -135,10 +150,13 @@ mouse_filter = 2
 
 [node name="death" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 50.0
+offset_left = -1.0
+offset_top = 29.0
+offset_right = 1919.0
+offset_bottom = 80.0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 34
+theme = ExtResource("2_oefn4")
+theme_override_font_sizes/font_size = 43
 text = "Deaths: 0"
 vertical_alignment = 1
 
@@ -152,8 +170,8 @@ scale = Vector2(0.0921433, 0.0916148)
 max_value = 10.0
 value = 10.0
 fill_mode = 4
-texture_under = ExtResource("4_frh6n")
-texture_progress = ExtResource("5_bgqg5")
+texture_under = ExtResource("3_ety6k")
+texture_progress = ExtResource("4_uggv1")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://scenes/player.tscn")
@@ -163,23 +181,29 @@ spawn_path = NodePath("..")
 environment = SubResource("Environment_ehr4g")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.551471, 0.834194, 0, -0.834194, 0.551471, 0, 37.3858, 47)
+transform = Transform3D(1, 0, 0, 0, 0.597821, 0.80163, 0, -0.80163, 0.597821, 0, 73.7163, 15.8467)
 shadow_enabled = true
 
 [node name="Scooterglb" parent="." instance=ExtResource("4_p7k4m")]
-transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 15.7921, -2.81463, 14.8324)
+transform = Transform3D(0.135, 0, 0, 0, 0.135, 0, 0, 0, 0.135, 5.03551, -5.93035, 4.55036)
 
 [node name="Scooterglb2" parent="." instance=ExtResource("4_p7k4m")]
-transform = Transform3D(0.133826, 0, 0.0177635, 0, 0.135, 0, -0.0177635, 0, 0.133826, 15.7921, -2.81463, 7.42264)
+transform = Transform3D(0.133826, 0, 0.0177635, 0, 0.135, 0, -0.0177635, 0, 0.133826, 5.03551, -5.93035, -2.8594)
 
 [node name="Scooterglb4" parent="." instance=ExtResource("4_p7k4m")]
-transform = Transform3D(-0.131516, 0, 0.030474, 0, 0.135, 0, -0.030474, 0, -0.131516, 15.7921, -2.81463, 4.35899)
+transform = Transform3D(-0.131516, 0, 0.030474, 0, 0.135, 0, -0.030474, 0, -0.131516, 5.03551, -5.93035, -5.92305)
 
 [node name="Scooterglb3" parent="." instance=ExtResource("4_p7k4m")]
-transform = Transform3D(-0.128937, 0, -0.0400038, 0, 0.135, 0, 0.0400038, 0, -0.128937, 8.53882, -2.81463, 7.42264)
+transform = Transform3D(-0.128937, 0, -0.0400038, 0, 0.135, 0, 0.0400038, 0, -0.128937, -2.21777, -5.93035, -2.8594)
+
+[node name="mappa-peter" parent="." instance=ExtResource("7_pvthh")]
+transform = Transform3D(3.6, 0, 0, 0, 3.6, 0, 0, 0, 3.6, 0, -7.96145, -18.0243)
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/join" to="." method="_on_join_pressed"]
 [connection signal="text_submitted" from="CanvasLayer/MainMenu/VBoxContainer/address" to="." method="_on_address_text_submitted"]
 [connection signal="text_submitted" from="CanvasLayer/MainMenu/VBoxContainer/name" to="." method="_on_name_text_submitted"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Upnp" to="." method="_on_upnp_pressed"]
+[connection signal="value_changed" from="CanvasLayer/MainMenu/VBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="toggled" from="CanvasLayer/Settings/VBoxContainer2/CheckButton2" to="." method="_on_check_button_2_toggled"]
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
