@@ -1,10 +1,10 @@
 Label
+Control
 VBoxContainer
 SpinBox
 VScrollBar
 Button
 CheckButton
-Control
 ColorRect
 Label3D
 LineEdit
