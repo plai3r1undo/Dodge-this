@@ -8,3 +8,14 @@
 
 - fun and goofy gameplay
 - multiplayer
+- the game must provide a challenge
+
+### gameplay
+![Alt text](<readme images/mainMenu.png>)
+
+- quick
+- flashy
+- old style
+- goofy
+
+![Alt text](<readme images/gameplay.png>)

@@ -10,3 +10,5 @@ res://meshes/mappa_peter.tscn
 res://MainMenuTheme.tres
 res://scenes/map_demo.gd
 res://addons/godot-vim/reamdVim.txt
+res://2D assets/MainMenuTheme.tres
+res://script/Ball.gd

@@ -1,18 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1695574322
-icon.svg::CompressedTexture2D::1947474584329486926::1695574247::1695574247::1::::<><>::
-MainMenuTheme.tres::Theme::8428000559699485150::1695574322::0::1::::<><>::uid://btt7yhita6a8h::::res://Fonts/Evil Empire.otf
-README.md::TextFile::-1::1695574247::0::1::::<><>::
-::res://2D assets/::1695574306
-ImponentTheme.tres::Theme::1766079583783091613::1695574306::0::1::::<><>::uid://xik0cygy8plm
+::res://::1695576329
+icon.svg::CompressedTexture2D::5289954367279389580::1695574247::1695575980::1::::<><>::
+README.md::TextFile::-1::1695576556::0::1::::<><>::
+::res://2D assets/::1695575535
+ImponentTheme.tres::Theme::1766079583783091613::1695575526::0::1::::<><>::uid://xik0cygy8plm
+MainMenuTheme.tres::Theme::8428000559699485150::1695575535::0::1::::<><>::uid://btt7yhita6a8h::::res://Fonts/Evil Empire.otf
 pixelbg.png::CompressedTexture2D::4423145132825214256::1695574247::1695574247::1::::<><>::
 pixelfg.png::CompressedTexture2D::1315900947306876554::1695574247::1695574247::1::::<><>::
 ::res://addons/::1695574247
-::res://addons/godot-vim/::1695574247
-godot-vim.gd::GDScript::-1::1695574247::0::1::::<>EditorPlugin<>::
-godot_bindings.gd::GDScript::-1::1695574247::0::1::::<>Node<>::
-icon.svg::CompressedTexture2D::4150875374295335597::1695574247::1695574247::1::::<><>::
-plugin.cfg::TextFile::-1::1695574247::0::1::::<><>::
+::res://addons/godot-vim/::1695575896
+reamdVim.txt::TextFile::-1::1695574927::0::1::::<><>::
+godot_bindings.gd::GDScript::-1::1695575896::0::1::::<>Node<>::
+plugin.cfg::TextFile::-1::1695575896::0::1::::<><>::
 ::res://addons/kenney_prototype_textures/::1695574247
 LICENSE.txt::TextFile::-1::1695574247::0::1::::<><>::
 ::res://addons/kenney_prototype_textures/dark/::1695574247
@@ -99,32 +98,35 @@ texture_10.png::CompressedTexture2D::6556401047411444732::1695574247::1695574247
 texture_11.png::CompressedTexture2D::629511444013187059::1695574247::1695574247::1::::<><>::
 texture_12.png::CompressedTexture2D::7768693343131068988::1695574247::1695574247::1::::<><>::
 texture_13.png::CompressedTexture2D::2740958709898488054::1695574247::1695574247::1::::<><>::
-::res://Fonts/::1695574307
-Evil Empire.otf::FontFile::3761218073851475393::1695574255::1695574307::1::::<><>::
+::res://Fonts/::1695575526
+Evil Empire.otf::FontFile::3761218073851475393::1695575526::1695575526::1::::<><>::
 ::res://Fonts/Germanica/::1695574247
 Embossed Germanica.ttf::FontFile::6800532185046970932::1695574247::1695574247::1::::<><>::
 Fluted Germanica.ttf::FontFile::3647501056341278545::1695574247::1695574247::1::::<><>::
 Plain Germanica.ttf::FontFile::1631510382910515718::1695574247::1695574247::1::::<><>::
 Shadowed Germanica.ttf::FontFile::8122073378990656722::1695574247::1695574247::1::::<><>::
-::res://meshes/::1695574366
+::res://meshes/::1695576347
 mappa-peter.glb::PackedScene::4185679303803503752::1695574247::1695574247::1::::<><>::
-mappa_peter.tscn::PackedScene::4518599572332447678::1695574366::0::1::::<><>::uid://b0vtr50ogq4um::::res://meshes/mappa-peter.glb
+mappa_peter.tscn::PackedScene::4518599572332447678::1695576347::0::1::::<><>::uid://b0vtr50ogq4um::::res://meshes/mappa-peter.glb
 prova_personaggio.glb::PackedScene::6276997509875584622::1695574247::1695574247::1::::<><>::
-::res://scenes/::1695574456
-ball.tscn::PackedScene::1691972260056475937::1695574366::0::1::::<><>::res://script/Ball.gd<>uid://d1k2756aph0vi::::res://sound effects/Hit_ball.wav
-camerashader.gdshader::Shader::-1::1695574516::0::1::::<><>::
+::res://readme images/::1695576463
+gameplay.png::CompressedTexture2D::4995223920027567777::1695576428::1695576566::1::::<><>::
+mainMenu.png::CompressedTexture2D::7072605447447957306::1695576237::1695576565::1::::<><>::
+::res://scenes/::1695576347
+ball.tscn::PackedScene::1691972260056475937::1695576347::0::1::::<><>::res://script/Ball.gd<>uid://d1k2756aph0vi::::res://sound effects/Hit_ball.wav
+camerashader.gdshader::Shader::-1::1695576347::0::1::::<><>::
 map.tscn::PackedScene::1345751691235876201::1695574247::0::1::::<><>::uid://blw4ahjdxy67t
-map_demo.gd::GDScript::-1::1695574475::0::1::::<>Node3D<>::
-map_demo.tscn::PackedScene::8508279603494523623::1695574516::0::1::::<><>::res://scenes/map_demo.gd<>uid://0frcqcc7hun2::::res://2D assets/ImponentTheme.tres<>uid://btt7yhita6a8h::::res://Fonts/Evil Empire.otf<>uid://b4aus3swry3my::::res://2D assets/pixelbg.png<>uid://xik0cygy8plm::::res://Fonts/Germanica/Plain Germanica.ttf<>uid://dsct65gecdbt3::::res://MainMenuTheme.tres<>uid://4xrog8wteqss::::res://scenes/scooterglb.tscn<>uid://s0oxw8hbp34y::::res://2D assets/pixelfg.png<>uid://b5m3w7btxg5w1::::res://meshes/mappa_peter.tscn
+map_demo.gd::GDScript::-1::1695575896::0::1::::<>Node3D<>::
+map_demo.tscn::PackedScene::8508279603494523623::1695576347::0::1::::<><>::res://scenes/map_demo.gd<>uid://btt7yhita6a8h::::res://Fonts/Evil Empire.otf<>uid://b4aus3swry3my::::res://2D assets/pixelbg.png<>uid://xik0cygy8plm::::res://Fonts/Germanica/Plain Germanica.ttf<>uid://dsct65gecdbt3::::res://2D assets/MainMenuTheme.tres<>uid://4xrog8wteqss::::res://scenes/scooterglb.tscn<>uid://s0oxw8hbp34y::::res://2D assets/pixelfg.png<>uid://b5m3w7btxg5w1::::res://meshes/mappa_peter.tscn
 personaggioDemo.tscn::PackedScene::6151989593290076059::1695574247::0::1::::<><>::uid://cvovh5c4pqsl7
 pixelated.tres::ShaderMaterial::4423567673445682835::1695574247::0::1::::<><>::res://scenes/camerashader.gdshader
-player.tscn::PackedScene::7468533853454436070::1695574366::0::1::::<><>::res://script/player.gd<>res://shaders/playerPixelatePlane.gdshader<>uid://deqwdl2pqefex::::res://sound effects/main song.wav
-scooterglb.tscn::PackedScene::2084014710981805062::1695574366::0::1::::<><>::uid://qah48euuvey::::res://test-meshes/Scooterglb.glb
-::res://script/::1695574364
-Ball.gd::GDScript::-1::1695574247::0::1::::<>Node3D<>::
-player.gd::GDScript::-1::1695574364::0::1::::<>CharacterBody3D<>::
-::res://shaders/::1695574456
-playerPixelatePlane.gdshader::Shader::-1::1695574516::0::1::::<><>::
+player.tscn::PackedScene::7468533853454436070::1695576346::0::1::::<><>::res://script/player.gd<>res://shaders/playerPixelatePlane.gdshader<>uid://deqwdl2pqefex::::res://sound effects/main song.wav
+scooterglb.tscn::PackedScene::2084014710981805062::1695576347::0::1::::<><>::uid://qah48euuvey::::res://test-meshes/Scooterglb.glb
+::res://script/::1695575896
+Ball.gd::GDScript::-1::1695575896::0::1::::<>Node3D<>::
+player.gd::GDScript::-1::1695575896::0::1::::<>CharacterBody3D<>::
+::res://shaders/::1695576347
+playerPixelatePlane.gdshader::Shader::-1::1695576347::0::1::::<><>::
 ::res://sound effects/::1695574247
 Ball_throw_sound.wav::AudioStreamWAV::4685559980548832975::1695574247::1695574247::1::::<><>::
 hit.wav::AudioStreamWAV::1981231569108125824::1695574247::1695574247::1::::<><>::
