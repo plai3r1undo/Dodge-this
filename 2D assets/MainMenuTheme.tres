@@ -1,0 +1,69 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dsct65gecdbt3"]
+
+[ext_resource type="FontFile" uid="uid://btt7yhita6a8h" path="res://Fonts/Evil Empire.otf" id="1_2oqew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qiph"]
+bg_color = Color(0.396078, 0.0117647, 0.988235, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.603922, 0.988235, 0.0117647, 1)
+corner_radius_top_left = 50
+corner_radius_bottom_right = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it6fl"]
+bg_color = Color(0.866667, 0.133333, 0.721569, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.133333, 0.866667, 0.278431, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lf6q"]
+bg_color = Color(0.427451, 0.34902, 0.478431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.603922, 0.988235, 0.0117647, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udjwb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44ma5"]
+bg_color = Color(0.556863, 0.615686, 0.607843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxbr0"]
+bg_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0.0705882)
+Button/colors/icon_pressed_color = Color(0.85098, 0.85098, 0.85098, 0.12549)
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_2oqew")
+Button/styles/hover = SubResource("StyleBoxFlat_2qiph")
+Button/styles/normal = SubResource("StyleBoxFlat_it6fl")
+Button/styles/pressed = SubResource("StyleBoxFlat_8lf6q")
+Label/colors/font_color = Color(1, 0, 0.603922, 1)
+Label/colors/font_outline_color = Color(1.68458e-06, 0.860633, 0.339894, 0.478431)
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 24
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxEmpty_udjwb")
+LineEdit/colors/caret_color = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/colors/clear_button_color = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_placeholder_color = Color(1, 1, 1, 0.486275)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 0.239216)
+LineEdit/colors/selection_color = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/fonts/font = null
+LineEdit/styles/focus = SubResource("StyleBoxFlat_44ma5")
+Panel/styles/panel = SubResource("StyleBoxFlat_bxbr0")

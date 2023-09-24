@@ -1,10 +1,12 @@
 res://scenes/player.tscn
 res://script/player.gd
 res://shaders/playerPixelatePlane.gdshader
+res://Tema1.tres
 res://scenes/camerashader.gdshader
 res://scenes/map_demo.tscn
 res://scenes/ball.tscn
 res://scenes/scooterglb.tscn
 res://meshes/mappa_peter.tscn
+res://MainMenuTheme.tres
 res://scenes/map_demo.gd
-res://README.md
+res://addons/godot-vim/reamdVim.txt

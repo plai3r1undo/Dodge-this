@@ -1,11 +1,79 @@
-[gd_scene load_steps=10 format=3 uid="uid://dthqefa4o571d"]
+[gd_scene load_steps=19 format=3 uid="uid://dthqefa4o571d"]
 
 [ext_resource type="Script" path="res://scenes/map_demo.gd" id="1_3164v"]
-[ext_resource type="Theme" uid="uid://0frcqcc7hun2" path="res://2D assets/ImponentTheme.tres" id="2_oefn4"]
+[ext_resource type="FontFile" uid="uid://btt7yhita6a8h" path="res://Fonts/Evil Empire.otf" id="2_pfmy8"]
 [ext_resource type="Texture2D" uid="uid://b4aus3swry3my" path="res://2D assets/pixelbg.png" id="3_ety6k"]
+[ext_resource type="FontFile" uid="uid://xik0cygy8plm" path="res://Fonts/Germanica/Plain Germanica.ttf" id="3_u1j4e"]
+[ext_resource type="Theme" uid="uid://dsct65gecdbt3" path="res://2D assets/MainMenuTheme.tres" id="4_f2eud"]
 [ext_resource type="PackedScene" uid="uid://4xrog8wteqss" path="res://scenes/scooterglb.tscn" id="4_p7k4m"]
 [ext_resource type="Texture2D" uid="uid://s0oxw8hbp34y" path="res://2D assets/pixelfg.png" id="4_uggv1"]
 [ext_resource type="PackedScene" uid="uid://b5m3w7btxg5w1" path="res://meshes/mappa_peter.tscn" id="7_pvthh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qiph"]
+bg_color = Color(0.396078, 0.0117647, 0.988235, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.603922, 0.988235, 0.0117647, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it6fl"]
+bg_color = Color(0.866667, 0.133333, 0.721569, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.133333, 0.866667, 0.278431, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lf6q"]
+bg_color = Color(0.427451, 0.34902, 0.478431, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.603922, 0.988235, 0.0117647, 1)
+corner_radius_top_left = 100
+corner_radius_bottom_right = 100
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_udjwb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44ma5"]
+bg_color = Color(0.556863, 0.615686, 0.607843, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxbr0"]
+bg_color = Color(0.207843, 0.313726, 0.439216, 1)
+
+[sub_resource type="Theme" id="Theme_y840b"]
+Button/colors/font_color = Color(0.917647, 0.67451, 0.545098, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0.0705882)
+Button/colors/icon_pressed_color = Color(0.85098, 0.85098, 0.85098, 0.12549)
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_pfmy8")
+Button/styles/hover = SubResource("StyleBoxFlat_2qiph")
+Button/styles/normal = SubResource("StyleBoxFlat_it6fl")
+Button/styles/pressed = SubResource("StyleBoxFlat_8lf6q")
+Label/colors/font_color = Color(1, 0, 0.603922, 1)
+Label/colors/font_outline_color = Color(0.735008, 0.382161, 0.826688, 0.34902)
+Label/constants/outline_size = 15
+Label/font_sizes/font_size = 24
+Label/fonts/font = null
+Label/styles/normal = SubResource("StyleBoxEmpty_udjwb")
+LineEdit/colors/caret_color = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/colors/clear_button_color = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/colors/font_color = Color(0.917647, 0.67451, 0.545098, 1)
+LineEdit/colors/font_placeholder_color = Color(0.917647, 0.67451, 0.545098, 0.486275)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 0.239216)
+LineEdit/colors/selection_color = Color(0.427451, 0.34902, 0.478431, 1)
+LineEdit/fonts/font = null
+LineEdit/styles/focus = SubResource("StyleBoxFlat_44ma5")
+Panel/styles/panel = SubResource("StyleBoxFlat_bxbr0")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5vul"]
 sky_top_color = Color(0.0901961, 0.670588, 0.976471, 1)
@@ -36,7 +104,7 @@ offset_left = -4358.0
 offset_top = -3804.0
 offset_right = 5800.0
 offset_bottom = 4546.0
-color = Color(0.188235, 0.298039, 0.415686, 1)
+color = Color(0.21125, 0.005, 0.5, 1)
 
 [node name="Title" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 10
@@ -47,9 +115,10 @@ grow_horizontal = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Title"]
 layout_mode = 2
-theme = ExtResource("2_oefn4")
-theme_override_font_sizes/font_size = 70
-text = "Dodge This"
+theme = SubResource("Theme_y840b")
+theme_override_fonts/font = ExtResource("3_u1j4e")
+theme_override_font_sizes/font_size = 120
+text = "Dodge This!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -65,6 +134,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 23
 text = "ip: To view ip start UPnP servie"
 horizontal_alignment = 1
@@ -72,6 +142,7 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
@@ -79,34 +150,45 @@ size_flags_horizontal = 0
 
 [node name="host" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-text = "host"
+theme = ExtResource("4_f2eud")
+text = "HOST"
 
 [node name="join" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-text = "join"
+theme = ExtResource("4_f2eud")
+text = "JOIN"
 
 [node name="address" type="LineEdit" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-placeholder_text = "enter ip"
+theme = ExtResource("4_f2eud")
+placeholder_text = "ENTER IP"
 alignment = 1
 
 [node name="name" type="LineEdit" parent="CanvasLayer/MainMenu/VBoxContainer"]
 visible = false
 layout_mode = 2
+theme = ExtResource("4_f2eud")
 placeholder_text = "player name"
 alignment = 1
 max_length = 14
 
 [node name="Upnp" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-text = "start UPnP service"
+theme = ExtResource("4_f2eud")
+text = "START UPnP SERVICE"
 
 [node name="SpinBox" type="SpinBox" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_f2eud")
 min_value = 9999.0
 max_value = 60000.0
 value = 9999.0
 custom_arrow_step = 1.0
+
+[node name="Fullscreen" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_f2eud")
+text = "Toggle Fullscreen"
 
 [node name="Settings" type="Control" parent="CanvasLayer"]
 visible = false
@@ -139,7 +221,6 @@ layout_mode = 2
 text = "High pixel form"
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,13 +231,13 @@ mouse_filter = 2
 
 [node name="death" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 2
-offset_left = -1.0
+offset_left = 39.0
 offset_top = 29.0
-offset_right = 1919.0
+offset_right = 1959.0
 offset_bottom = 80.0
 size_flags_vertical = 0
-theme = ExtResource("2_oefn4")
-theme_override_font_sizes/font_size = 43
+theme_override_fonts/font = ExtResource("3_u1j4e")
+theme_override_font_sizes/font_size = 48
 text = "Deaths: 0"
 vertical_alignment = 1
 
@@ -205,5 +286,6 @@ transform = Transform3D(3.6, 0, 0, 0, 3.6, 0, 0, 0, 3.6, 0, -7.96145, -18.0243)
 [connection signal="text_submitted" from="CanvasLayer/MainMenu/VBoxContainer/name" to="." method="_on_name_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Upnp" to="." method="_on_upnp_pressed"]
 [connection signal="value_changed" from="CanvasLayer/MainMenu/VBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="toggled" from="CanvasLayer/Settings/VBoxContainer2/CheckButton2" to="." method="_on_check_button_2_toggled"]
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
