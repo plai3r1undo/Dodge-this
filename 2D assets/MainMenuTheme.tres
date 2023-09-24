@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://dsct65gecdbt3"]
 
-[ext_resource type="FontFile" uid="uid://btt7yhita6a8h" path="res://Evil Empire.otf" id="1_2oqew"]
+[ext_resource type="FontFile" uid="uid://btt7yhita6a8h" path="res://Fonts/Evil Empire.otf" id="1_2oqew"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qiph"]
 bg_color = Color(0.396078, 0.0117647, 0.988235, 1)

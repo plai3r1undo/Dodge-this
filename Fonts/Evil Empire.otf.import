@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://btt7yhita6a8h"
-path="res://.godot/imported/Evil Empire.otf-18497c44b2e9ebd8e7a4842764c23822.fontdata"
+path="res://.godot/imported/Evil Empire.otf-6210c695808eb5c1fa2e365ddc8b5103.fontdata"
 
 [deps]
 
-source_file="res://Evil Empire.otf"
-dest_files=["res://.godot/imported/Evil Empire.otf-18497c44b2e9ebd8e7a4842764c23822.fontdata"]
+source_file="res://Fonts/Evil Empire.otf"
+dest_files=["res://.godot/imported/Evil Empire.otf-6210c695808eb5c1fa2e365ddc8b5103.fontdata"]
 
 [params]
 

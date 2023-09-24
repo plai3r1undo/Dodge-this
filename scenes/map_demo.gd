@@ -18,14 +18,16 @@ var enet_peer = ENetMultiplayerPeer.new( )
 @onready var death_counter: Label = $CanvasLayer/HUD/death
 @onready var back_ground: ColorRect = $CanvasLayer/ColorRect
 @onready var title: VBoxContainer = $CanvasLayer/Title
+
 var high_pixel_form = false;
 
-
+@export var fullscren = false
 
 
 func _ready():
 	hud.hide()
-
+	if fullscren:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -87,7 +89,7 @@ func update_death_counter(death):
 	var deth_text = "		Death: " + str(death)
 	death_counter.text = deth_text
 
-func _on_multiplayer_spawner_spawned(node): #must check if it is player if we add more object to mutliplyer Spawner
+func _on_multiplayer_spawner_spawned(node): #must check if it is player if we were add more object to mutliplyer Spawner
 	if node.is_multiplayer_authority():
 		node.health_changed.connect(update_health_bar)
 		node.death_counter.connect(update_death_counter)
@@ -131,3 +133,13 @@ func _on_upnp_pressed():
 func _on_spin_box_value_changed(value):
 	PORT = value;
 	print("port: " + str(value))
+
+
+func _on_fullscreen_pressed():
+	if !fullscren:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		fullscren = true
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		fullscren = false
+		

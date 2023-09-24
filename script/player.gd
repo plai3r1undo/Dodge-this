@@ -19,7 +19,6 @@ signal death_counter(deaths)
 var death: int = 0;
 var is_super_charged: bool = true
 @onready var super_timer: Timer = $superTimer
-@onready var label_speed = $Control/Label
 var player_name := "name";
 
 

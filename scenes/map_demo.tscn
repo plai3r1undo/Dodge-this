@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dthqefa4o571d"]
+[gd_scene load_steps=19 format=3 uid="uid://dthqefa4o571d"]
 
 [ext_resource type="Script" path="res://scenes/map_demo.gd" id="1_3164v"]
-[ext_resource type="Theme" uid="uid://0frcqcc7hun2" path="res://2D assets/ImponentTheme.tres" id="2_oefn4"]
-[ext_resource type="FontFile" uid="uid://btt7yhita6a8h" path="res://Evil Empire.otf" id="2_wauq6"]
-[ext_resource type="Theme" uid="uid://dsct65gecdbt3" path="res://Tema1.tres" id="3_3e0mf"]
+[ext_resource type="FontFile" uid="uid://btt7yhita6a8h" path="res://Fonts/Evil Empire.otf" id="2_pfmy8"]
 [ext_resource type="Texture2D" uid="uid://b4aus3swry3my" path="res://2D assets/pixelbg.png" id="3_ety6k"]
 [ext_resource type="FontFile" uid="uid://xik0cygy8plm" path="res://Fonts/Germanica/Plain Germanica.ttf" id="3_u1j4e"]
+[ext_resource type="Theme" uid="uid://dsct65gecdbt3" path="res://2D assets/MainMenuTheme.tres" id="4_f2eud"]
 [ext_resource type="PackedScene" uid="uid://4xrog8wteqss" path="res://scenes/scooterglb.tscn" id="4_p7k4m"]
 [ext_resource type="Texture2D" uid="uid://s0oxw8hbp34y" path="res://2D assets/pixelfg.png" id="4_uggv1"]
 [ext_resource type="PackedScene" uid="uid://b5m3w7btxg5w1" path="res://meshes/mappa_peter.tscn" id="7_pvthh"]
@@ -55,7 +54,7 @@ Button/colors/icon_focus_color = Color(1, 1, 1, 0.0705882)
 Button/colors/icon_pressed_color = Color(0.85098, 0.85098, 0.85098, 0.12549)
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 32
-Button/fonts/font = ExtResource("2_wauq6")
+Button/fonts/font = ExtResource("2_pfmy8")
 Button/styles/hover = SubResource("StyleBoxFlat_2qiph")
 Button/styles/normal = SubResource("StyleBoxFlat_it6fl")
 Button/styles/pressed = SubResource("StyleBoxFlat_8lf6q")
@@ -135,6 +134,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/MainMenu"]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_font_sizes/font_size = 23
 text = "ip: To view ip start UPnP servie"
 horizontal_alignment = 1
@@ -150,40 +150,45 @@ size_flags_horizontal = 0
 
 [node name="host" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3e0mf")
+theme = ExtResource("4_f2eud")
 text = "HOST"
 
 [node name="join" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3e0mf")
+theme = ExtResource("4_f2eud")
 text = "JOIN"
 
 [node name="address" type="LineEdit" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3e0mf")
+theme = ExtResource("4_f2eud")
 placeholder_text = "ENTER IP"
 alignment = 1
 
 [node name="name" type="LineEdit" parent="CanvasLayer/MainMenu/VBoxContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("3_3e0mf")
+theme = ExtResource("4_f2eud")
 placeholder_text = "player name"
 alignment = 1
 max_length = 14
 
 [node name="Upnp" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3e0mf")
+theme = ExtResource("4_f2eud")
 text = "START UPnP SERVICE"
 
 [node name="SpinBox" type="SpinBox" parent="CanvasLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_3e0mf")
+theme = ExtResource("4_f2eud")
 min_value = 9999.0
 max_value = 60000.0
 value = 9999.0
 custom_arrow_step = 1.0
+
+[node name="Fullscreen" type="Button" parent="CanvasLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_f2eud")
+text = "Toggle Fullscreen"
 
 [node name="Settings" type="Control" parent="CanvasLayer"]
 visible = false
@@ -216,7 +221,6 @@ layout_mode = 2
 text = "High pixel form"
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,13 +231,13 @@ mouse_filter = 2
 
 [node name="death" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 2
-offset_left = -1.0
+offset_left = 39.0
 offset_top = 29.0
-offset_right = 1919.0
+offset_right = 1959.0
 offset_bottom = 80.0
 size_flags_vertical = 0
-theme = ExtResource("2_oefn4")
-theme_override_font_sizes/font_size = 43
+theme_override_fonts/font = ExtResource("3_u1j4e")
+theme_override_font_sizes/font_size = 48
 text = "Deaths: 0"
 vertical_alignment = 1
 
@@ -282,5 +286,6 @@ transform = Transform3D(3.6, 0, 0, 0, 3.6, 0, 0, 0, 3.6, 0, -7.96145, -18.0243)
 [connection signal="text_submitted" from="CanvasLayer/MainMenu/VBoxContainer/name" to="." method="_on_name_text_submitted"]
 [connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Upnp" to="." method="_on_upnp_pressed"]
 [connection signal="value_changed" from="CanvasLayer/MainMenu/VBoxContainer/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="pressed" from="CanvasLayer/MainMenu/VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="toggled" from="CanvasLayer/Settings/VBoxContainer2/CheckButton2" to="." method="_on_check_button_2_toggled"]
 [connection signal="spawned" from="MultiplayerSpawner" to="." method="_on_multiplayer_spawner_spawned"]
