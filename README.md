@@ -19,3 +19,6 @@
 - goofy
 
 ![Alt text](<readme images/gameplay.png>)
+
+### Thanks to
+- [EthanTheEnigma](https://github.com/EthanTheEnigma) for the quake movement implementation
