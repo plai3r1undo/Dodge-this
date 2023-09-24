@@ -6,9 +6,7 @@ signal death_counter(deaths)
 @onready var camera = $Camera3D
 @onready var view_camera = $Camera3D/Camera3D
 @export var seny := 0.005
-@export var senx := 0.005
-@export var super_wait_time: float = 0.5 #this is the time between each ball in the super, to change the timer beteen each super change
-										#in the timer node
+@export var senx := 0.005 
 @onready var animation_player =  $prova_personaggio/AnimationPlayer
 @onready var RayCast = $Camera3D/Camera3D/Node3D/RayCast3D
 @onready var jump_effect: AudioStream = preload("res://sound effects/Jump.wav")
@@ -96,10 +94,9 @@ func _process(_delta):
 	if  Input.is_action_just_pressed("respawn"):
 		position = Vector3(0,5,0)
 		
-	if Input.is_action_pressed("super"):
-		superThrow();
 
-func clip_velocity(normal: Vector3, overbounce: float, delta) -> void:
+
+func clip_velocity(normal: Vector3, overbounce: float, _delta) -> void:
 	var correction_amount: float = 0
 	var correction_dir: Vector3 = Vector3.ZERO
 	var move_vector: Vector3 = get_velocity().normalized()
@@ -181,7 +178,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("throw") and is_on_floor() \
 		and animation_player.current_animation != "Lancio":
 			throw_ball.rpc()
-
+			
+	if Input.is_action_just_pressed("super"):
+		superThrow()
+	
 	grounded_prev = grounded
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir: Vector2 = Input.get_vector("left", "right", "forward", "backward")
@@ -219,7 +219,7 @@ func throw_ball():
 	get_parent().add_child(instance)
 	
 
-#music gets herad twice
+#music gets heard twice
 func play_music():
 	if audio_stram_player.is_playing():
 		pass
@@ -263,16 +263,17 @@ func recive_damage():
 		death_counter.emit(death);
 	health_changed.emit(health)
 	
-
+#@rpc("call_local")
 func superThrow():
 	if is_super_charged:
 		is_super_charged = false
+		throw_ball.rpc()
+		await get_tree().create_timer(0.5).timeout
+		throw_ball.rpc()
+		await get_tree().create_timer(0.5).timeout
+		throw_ball.rpc()
 		super_timer.start()
-		throw_ball.rpc()
-		await get_tree().create_timer(0.5).timeout
-		throw_ball.rpc()
-		await get_tree().create_timer(0.5).timeout
-		throw_ball.rpc()
+
 
 
 
